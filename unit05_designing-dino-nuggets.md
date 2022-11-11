@@ -26,7 +26,7 @@
     * Object:
         * Bike
         * PowerUp
-        * etc.
+        * Trail
     * Class = Action:
         * public interface (which provides polymorphic power to child class that inherit this parent code)
         * Execute() function --> Returns nothing (void); Parameters = Cast cast, Script script

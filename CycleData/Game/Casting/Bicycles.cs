@@ -55,10 +55,10 @@ namespace CycleData.Game.Casting
         {
             for (int i = 0; i < numberOfSegments; i++)
             {
-                Actor tail = _segments.Last<Actor>();
-                Point velocity = tail.GetVelocity();
+                Actor trail = _segments.Last<Actor>();
+                Point velocity = trail.GetVelocity();
                 Point offset = velocity.Reverse();
-                Point position = tail.GetPosition().Add(offset);
+                Point position = trail.GetPosition().Add(offset);
 
                 Actor segment = new Actor();
                 segment.SetPosition(position);

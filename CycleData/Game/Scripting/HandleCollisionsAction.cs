@@ -44,14 +44,14 @@ namespace CycleData.Game.Scripting
         {
             Bicycle zoomer = (Bicycle)cast.GetFirstActor("zoom");
             //Score score = (Score)cast.GetFirstActor("score");
-            PowerUp food = (PowerUp)cast.GetFirstActor("food");
+            PowerUp power_up = (PowerUp)cast.GetFirstActor("power_up");
             
-            if (zoomer.GetBike().GetPosition().Equals(food.GetPosition()))
+            if (zoomer.GetBike().GetPosition().Equals(power_up.GetPosition()))
             {
-                int points = food.GetPoints();
+                int points = power_up.GetPoints();
                 zoomer.GrowTrail(points);
                 // score.AddPoints(points);
-                food.Reset();
+                power_up.Reset();
             }
         }
 

@@ -6,40 +6,40 @@ namespace CycleData.Game.Casting
 {
     /// <summary>
     /// <para>A long limbless reptile.</para>
-    /// <para>The responsibility of Snake is to move itself.</para>
+    /// <para>The responsibility of Bicycle is to move itself.</para>
     /// </summary>
-    public class Snake : Actor
+    public class Bicycle : Actor
     {
         private List<Actor> _segments = new List<Actor>();
 
         /// <summary>
-        /// Constructs a new instance of a Snake.
+        /// Constructs a new instance of a Bicycle.
         /// </summary>
-        public Snake()
+        public Bicycle()
         {
             PrepareBody();
         }
 
         /// <summary>
-        /// Gets the snake's body segments.
+        /// Gets the bike's trail.
         /// </summary>
-        /// <returns>The body segments in a List.</returns>
+        /// <returns>The trail in a List.</returns>
         public List<Actor> GetBody()
         {
             return new List<Actor>(_segments.Skip(1).ToArray());
         }
 
         /// <summary>
-        /// Gets the snake's head segment.
+        /// Gets the bike's main segment.
         /// </summary>
         /// <returns>The head segment as an instance of Actor.</returns>
-        public Actor GetHead()
+        public Actor GetBike()
         {
             return _segments[0];
         }
 
         /// <summary>
-        /// Gets the snake's segments (including the head).
+        /// Gets the bike's segments (including the head).
         /// </summary>
         /// <returns>A list of snake segments as instances of Actors.</returns>
         public List<Actor> GetSegments()
@@ -48,10 +48,10 @@ namespace CycleData.Game.Casting
         }
 
         /// <summary>
-        /// Grows the snake's tail by the given number of segments.
+        /// Grows the bike's trail by the given number of segments.
         /// </summary>
         /// <param name="numberOfSegments">The number of segments to grow.</param>
-        public void GrowTail(int numberOfSegments)
+        public void GrowTrail(int numberOfSegments)
         {
             for (int i = 0; i < numberOfSegments; i++)
             {
@@ -87,10 +87,10 @@ namespace CycleData.Game.Casting
         }
 
         /// <summary>
-        /// Turns the head of the snake in the given direction.
+        /// Turns the bike in the given direction.
         /// </summary>
         /// <param name="velocity">The given direction.</param>
-        public void TurnHead(Point direction)
+        public void TurnBike(Point direction)
         {
             _segments[0].SetVelocity(direction);
         }

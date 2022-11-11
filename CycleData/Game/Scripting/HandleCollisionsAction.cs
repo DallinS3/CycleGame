@@ -42,15 +42,15 @@ namespace CycleData.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         private void HandleFoodCollisions(Cast cast)
         {
-            Snake snake = (Snake)cast.GetFirstActor("snake");
-            Score score = (Score)cast.GetFirstActor("score");
-            Food food = (Food)cast.GetFirstActor("food");
+            Bicycle zoomer = (Bicycle)cast.GetFirstActor("zoom");
+            //Score score = (Score)cast.GetFirstActor("score");
+            PowerUp food = (PowerUp)cast.GetFirstActor("food");
             
-            if (snake.GetHead().GetPosition().Equals(food.GetPosition()))
+            if (zoomer.GetBike().GetPosition().Equals(food.GetPosition()))
             {
                 int points = food.GetPoints();
-                snake.GrowTail(points);
-                score.AddPoints(points);
+                zoomer.GrowTrail(points);
+                // score.AddPoints(points);
                 food.Reset();
             }
         }
@@ -61,8 +61,8 @@ namespace CycleData.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
         {
-            Snake snake = (Snake)cast.GetFirstActor("snake");
-            Actor head = snake.GetHead();
+            Bicycle snake = (Bicycle)cast.GetFirstActor("snake");
+            Actor head = snake.GetBike();
             List<Actor> body = snake.GetBody();
 
             foreach (Actor segment in body)
@@ -78,9 +78,9 @@ namespace CycleData.Game.Scripting
         {
             if (_isGameOver == true)
             {
-                Snake snake = (Snake)cast.GetFirstActor("snake");
+                Bicycle snake = (Bicycle)cast.GetFirstActor("snake");
                 List<Actor> segments = snake.GetSegments();
-                Food food = (Food)cast.GetFirstActor("food");
+                PowerUp food = (PowerUp)cast.GetFirstActor("food");
 
                 // create a "game over" message
                 int x = Constants.MAX_X / 2;

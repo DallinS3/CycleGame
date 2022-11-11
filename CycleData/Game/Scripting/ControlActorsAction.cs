@@ -50,9 +50,11 @@ namespace CycleData.Game.Scripting
                 _direction = new Point(0, Constants.CELL_SIZE);
             }
 
-            Snake snake = (Snake)cast.GetFirstActor("snake");
-            snake.TurnHead(_direction);
+            Bicycle zoomer = (Bicycle)cast.GetFirstActor("zoom");
+            zoomer.TurnBike(_direction); 
 
+            Bicycle dragoneer = (Bicycle)cast.GetFirstActor("dragon");
+            dragoneer.TurnBike(_direction);
         }
     }
 }

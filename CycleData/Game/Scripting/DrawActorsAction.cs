@@ -24,16 +24,16 @@ namespace CycleData.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
-            Snake snake = (Snake)cast.GetFirstActor("snake");
-            List<Actor> segments = snake.GetSegments();
+            Bicycle zoomer = (Bicycle)cast.GetFirstActor("zoom");
+            List<Actor> segments = zoomer.GetSegments();
             Actor score = cast.GetFirstActor("score");
-            Actor food = cast.GetFirstActor("food");
+            Actor power_up = cast.GetFirstActor("powerUp");
             List<Actor> messages = cast.GetActors("messages");
             
             _videoService.ClearBuffer();
             _videoService.DrawActors(segments);
             _videoService.DrawActor(score);
-            _videoService.DrawActor(food);
+            _videoService.DrawActor(power_up);
             _videoService.DrawActors(messages);
             _videoService.FlushBuffer();
         }

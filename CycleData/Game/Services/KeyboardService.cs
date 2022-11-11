@@ -33,6 +33,10 @@ namespace CycleData.Game.Services
             _keys["up"] = KeyboardKey.KEY_UP;
             _keys["left"] = KeyboardKey.KEY_LEFT;
             _keys["right"] = KeyboardKey.KEY_RIGHT;
+            _keys["eight"] = KeyboardKey.KEY_KP_8;
+            _keys["four"] = KeyboardKey.KEY_KP_4;
+            _keys["five"] = KeyboardKey.KEY_KP_5;
+            _keys["six"] = KeyboardKey.KEY_KP_6;
         }
 
         /// <summary>

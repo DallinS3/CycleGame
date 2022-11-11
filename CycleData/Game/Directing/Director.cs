@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using CycleData.Game.Casting;
 using CycleData.Game.Scripting;
 using CycleData.Game.Services;
-
+using Action = CycleData.Game.Scripting.Action;
 
 namespace CycleData.Game.Directing
 {

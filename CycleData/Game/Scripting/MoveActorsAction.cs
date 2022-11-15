@@ -41,6 +41,8 @@ namespace CycleData.Game.Scripting
             }
 
             /*
+                EXAMPLES GIVEN IN-CLASS
+            
             foreach (Actor actor in cast.GetAllActors())
             {
                 actor.MoveNext();

@@ -62,12 +62,12 @@ namespace CycleData.Game.Scripting
         private void HandleSegmentCollisions(Cast cast)
         {
             Bicycle zoom = (Bicycle)cast.GetFirstActor("zoom");
-            Actor head = zoom.GetBike();
+            Actor bike = zoom.GetBike();
             List<Actor> body = zoom.GetBody();
 
             foreach (Actor segment in body)
             {
-                if (segment.GetPosition().Equals(head.GetPosition()))
+                if (segment.GetPosition().Equals(bike.GetPosition()))
                 {
                     _isGameOver = true;
                 }

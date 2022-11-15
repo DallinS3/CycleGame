@@ -4,8 +4,6 @@ using CycleData.Game.Casting;
 
 namespace CycleData.Game.Scripting
 {
-    // TODO: Implement the MoveActorsAction class here
-
     // 1) Add the class declaration. Use the following class comment. Make sure you
     //    inherit from the Action class.
     public class MoveActorsActing : Action
@@ -17,8 +15,6 @@ namespace CycleData.Game.Scripting
         /// </para>
         /// </summary>
 
-        // 2) Create the class constructor. Use the following method comment.
-
         /// <summary>
         /// Constructs a new instance of MoveActorsAction.
         /// </summary>
@@ -27,11 +23,6 @@ namespace CycleData.Game.Scripting
             
         }
 
-        // 3) Override the Execute(Cast cast, Script script) method. Use the following 
-        //    method comment. You custom implementation should do the following:
-        //    a) get all the actors from the cast
-        //    b) loop through all the actors
-        //    c) call the MoveNext() method on each actor.
         public void Execute(Cast cast, Script script)
         {
             List<Actor> actors = cast.GetAllActors();

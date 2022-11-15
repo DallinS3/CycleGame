@@ -27,7 +27,15 @@ namespace CycleData.Game
         public static Color WHITE = new Color(255, 255, 255);
         public static Color YELLOW = new Color(255, 255, 0);
         public static Color GREEN = new Color(0, 255, 0);
+        public static Color BLUE = new Color(0, 0, 225);
+        public static Color OFFWHITE = new Color(225, 225, 225);
+        // public static Color var = TestConstants(BLUE);
 
     }
+
+    // private void TestConstants(Color x)
+    // {
+    //     Console.WriteLine(x);
+    // }
 }
 

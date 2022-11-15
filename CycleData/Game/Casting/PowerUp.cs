@@ -11,7 +11,7 @@ namespace CycleData.Game.Casting
     /// </summary>
     public class PowerUp : Actor
     {
-        private int _points = 0;
+        // private int _points = 0;
 
         /// <summary>
         /// Constructs a new instance of an Food.
@@ -27,10 +27,10 @@ namespace CycleData.Game.Casting
         /// Gets the points this food is worth.
         /// </summary>
         /// <returns>The points.</returns>
-        public int GetPoints()
-        {
-            return _points;
-        }
+        // public int GetPoints()
+        // {
+        //     return _points;
+        // }
 
         /// <summary>
         /// Selects a random position and points that the food is worth.
@@ -38,7 +38,7 @@ namespace CycleData.Game.Casting
         public void Reset()
         {
             Random random = new Random();
-            _points = random.Next(9);
+            // _points = random.Next(9);
             int x = random.Next(Constants.COLUMNS);
             int y = random.Next(Constants.ROWS);
             Point position = new Point(x, y);

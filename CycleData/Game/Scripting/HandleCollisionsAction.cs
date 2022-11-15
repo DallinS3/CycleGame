@@ -42,17 +42,17 @@ namespace CycleData.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         private void HandleFoodCollisions(Cast cast)
         {
-            Bicycle zoomer = (Bicycle)cast.GetFirstActor("zoom");
-            //Score score = (Score)cast.GetFirstActor("score");
+            Bicycle zoom = (Bicycle)cast.GetFirstActor("zoom");
+            // Score score = (Score)cast.GetFirstActor("score");
             PowerUp power_up = (PowerUp)cast.GetFirstActor("power_up");
             
-            if (zoomer.GetBike().GetPosition().Equals(power_up.GetPosition()))
-            {
-                int points = power_up.GetPoints();
-                zoomer.GrowTrail(points);
-                // score.AddPoints(points);
-                power_up.Reset();
-            }
+            // if (zoom.GetBike().GetPosition().Equals(power_up.GetPosition()))
+            // {
+            //     int points = power_up.GetPoints();
+            //     zoom.GrowTrail(points);
+            //     // score.AddPoints(points);
+            //     power_up.Reset();
+            // }
         }
 
         /// <summary>
@@ -62,6 +62,9 @@ namespace CycleData.Game.Scripting
         private void HandleSegmentCollisions(Cast cast)
         {
             Bicycle zoom = (Bicycle)cast.GetFirstActor("zoom");
+            Bicycle drag = (Bicycle)cast.GetFirstActor("dragon");
+            Bicycle slimshad = (Bicycle)cast.GetFirstActor("shadow");
+            Bicycle shuriken = (Bicycle)cast.GetFirstActor("ninja");
             Actor bike = zoom.GetBike();
             List<Actor> body = zoom.GetBody();
 
@@ -78,8 +81,8 @@ namespace CycleData.Game.Scripting
         {
             if (_isGameOver == true)
             {
-                Bicycle snake = (Bicycle)cast.GetFirstActor("snake");
-                List<Actor> segments = snake.GetSegments();
+                Bicycle bike = (Bicycle)cast.GetFirstActor("bike");
+                List<Actor> segments = bike.GetSegments();
                 PowerUp food = (PowerUp)cast.GetFirstActor("food");
 
                 // create a "game over" message

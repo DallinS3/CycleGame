@@ -41,5 +41,5 @@
 
 
 # Authors
-Jacob Holst
-Dallin Scott
+Jacob Holst (pizzatoaster103@github.com)
+Dallin Scott (something@actor.getEmail())

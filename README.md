@@ -38,5 +38,5 @@ root                    (project root folder)
 ## Authors
 * Matt Manley (manleym@byui.edu)
 * Scott Burton (burtons@byui.edu)
-* Jacob Holst ()
+* Jacob Holst (hol19002@byui.edu)
 * Dallin Scott (sco17014@byui.edu)

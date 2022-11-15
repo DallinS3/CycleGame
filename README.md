@@ -39,4 +39,4 @@ root                    (project root folder)
 * Matt Manley (manleym@byui.edu)
 * Scott Burton (burtons@byui.edu)
 * Jacob Holst ()
-* Dallin Scott
+* Dallin Scott (sco17014@byui.edu)

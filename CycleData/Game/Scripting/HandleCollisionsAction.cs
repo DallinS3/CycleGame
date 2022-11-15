@@ -61,9 +61,9 @@ namespace CycleData.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
         {
-            Bicycle snake = (Bicycle)cast.GetFirstActor("snake");
-            Actor head = snake.GetBike();
-            List<Actor> body = snake.GetBody();
+            Bicycle zoom = (Bicycle)cast.GetFirstActor("zoom");
+            Actor head = zoom.GetBike();
+            List<Actor> body = zoom.GetBody();
 
             foreach (Actor segment in body)
             {

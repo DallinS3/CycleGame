@@ -27,7 +27,7 @@ namespace CycleData.Game.Scripting
         }
 
         /// <inheritdoc/>
-        public void Execute(Cast castA, Cast castB, Script script)
+        public void Execute(Cast cast, Script script)
         {
             // left
             if (_keyboardService.IsKeyDown("a"))
@@ -104,10 +104,10 @@ namespace CycleData.Game.Scripting
             }
 
 
-            Bicycle zoomer = (Bicycle)castA.GetFirstActor("zoom");
+            Bicycle zoomer = (Bicycle)cast.GetFirstActor("zoom");
             zoomer.TurnBike(_directionZ); 
 
-            Bicycle dragoneer = (Bicycle)castB.GetFirstActor("dragon");
+            Bicycle dragoneer = (Bicycle)cast.GetFirstActor("dragon");
             dragoneer.TurnBike(_directionD);
 
             // Bicycle shadower = (Bicycle)cast.GetFirstActor("shadow");

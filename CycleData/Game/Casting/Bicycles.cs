@@ -12,6 +12,7 @@ namespace CycleData.Game.Casting
     {
         private List<Actor> _segments = new List<Actor>();
         private int _no;
+        Color _color;
 
         /// <summary>
         /// Constructs a new instance of a Bicycle.
@@ -61,7 +62,7 @@ namespace CycleData.Game.Casting
         /// Grows the bike's trail by the given number of segments.
         /// </summary>
         /// <param name="numberOfSegments">The number of segments to grow.</param>
-        public void GrowTrail(int numberOfSegments)
+        public void GrowTrail(int numberOfSegments, Color color)
         {
             for (int i = 0; i < numberOfSegments; i++)
             {
@@ -74,7 +75,7 @@ namespace CycleData.Game.Casting
                 segment.SetPosition(position);
                 segment.SetVelocity(velocity);
                 segment.SetText("#");
-                segment.SetColor(Constants.GREEN);
+                segment.SetColor(color);
                 _segments.Add(segment);
             }
         }
@@ -105,6 +106,10 @@ namespace CycleData.Game.Casting
             _segments[0].SetVelocity(direction);
         }
 
+        public Color GetTrailColor()
+        {
+            return _color;
+        }
         /// <summary>
         /// Prepares the snake body for moving.
         /// </summary>
@@ -114,6 +119,7 @@ namespace CycleData.Game.Casting
             int y = Constants.MAX_Y / 2;
 
             Traits traits = new Traits(id);
+            _color = traits.color2;
 
             for (int i = 0; i < Constants.BIKE_LENGTH; i++)
             {

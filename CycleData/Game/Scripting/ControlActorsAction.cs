@@ -78,7 +78,7 @@ namespace CycleData.Game.Scripting
 
             
                 // Bicycle bicycle = (Bicycle)cast.GetFirstActor("bicycle");
-                //bike.GrowTrail();
+                bike.GrowTrail(1, bike.GetTrailColor());
             }
 
             // Bicycle dragoneer = (Bicycle)cast.GetFirstActor("dragon");

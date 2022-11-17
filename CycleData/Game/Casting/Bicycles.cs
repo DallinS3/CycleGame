@@ -11,13 +11,15 @@ namespace CycleData.Game.Casting
     public class Bicycle : Actor
     {
         private List<Actor> _segments = new List<Actor>();
+        private int _no;
 
         /// <summary>
         /// Constructs a new instance of a Bicycle.
         /// </summary>
-        public Bicycle()
+        public Bicycle(int id)
         {
-            PrepareBody();
+            _no = id;
+            PrepareBody(id);
         }
 
         /// <summary>
@@ -38,6 +40,14 @@ namespace CycleData.Game.Casting
             return _segments[0];
         }
 
+        /// <summary>
+        /// Gets the bike's id no. (1 = zoomer, 2 = pendragon, 3 = shady, 4 = greninja)
+        /// </summary>
+        /// <returns>A number assigned to each bike.</returns>
+        public int GetBikeNo()
+        {
+            return _no;
+        }
         /// <summary>
         /// Gets the bike's segments (including the head).
         /// </summary>
@@ -98,17 +108,19 @@ namespace CycleData.Game.Casting
         /// <summary>
         /// Prepares the snake body for moving.
         /// </summary>
-        private void PrepareBody()
+        private void PrepareBody(int id)
         {
             int x = Constants.MAX_X / 2;
             int y = Constants.MAX_Y / 2;
 
+            Traits traits = new Traits(id);
+
             for (int i = 0; i < Constants.BIKE_LENGTH; i++)
             {
-                Point position = new Point(x - i * Constants.CELL_SIZE, y);
+                Point position = new Point(x - (traits.x + i) * Constants.CELL_SIZE, y + traits.y);
                 Point velocity = new Point(1 * Constants.CELL_SIZE, 0);
                 string text = i == 0 ? "8" : "#";
-                Color color = i == 0 ? Constants.BLUE : Constants.GREEN;
+                Color color = i == 0 ? traits.color1 : traits.color2;
 
                 Actor segment = new Actor();
                 segment.SetPosition(position);

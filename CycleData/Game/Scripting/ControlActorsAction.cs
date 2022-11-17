@@ -13,10 +13,10 @@ namespace CycleData.Game.Scripting
     public class ControlActorsAction : Action
     {
         private KeyboardService _keyboardService;
-        private Point _directionZ = new Point(Constants.CELL_SIZE, 0);
-        private Point _directionS = new Point(Constants.CELL_SIZE, 0);
-        private Point _directionD = new Point(Constants.CELL_SIZE, 0);
-        private Point _directionN = new Point(Constants.CELL_SIZE, 0);
+        private Point _direction = new Point(0, Constants.CELL_SIZE);
+        // private Point _directionS = new Point(0, Constants.CELL_SIZE);
+        // private Point _directionD = new Point(0, Constants.CELL_SIZE);
+        // private Point _directionN = new Point(0, Constants.CELL_SIZE);
 
         /// <summary>
         /// Constructs a new instance of ControlActorsAction using the given KeyboardService.
@@ -29,92 +29,59 @@ namespace CycleData.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
-            // left
-            if (_keyboardService.IsKeyDown("a"))
+            foreach (Bicycle bike in cast.GetActors("bicycle"))
             {
-                _directionZ = new Point(-Constants.CELL_SIZE, 0);
-            }
-            if (_keyboardService.IsKeyDown("left"))
+                int no = bike.GetBikeNo();
+                // left
+                if ((_keyboardService.IsKeyDown("a") && no == 1) || 
+                    (_keyboardService.IsKeyDown("left") && no == 2) || 
+                    (_keyboardService.IsKeyDown("j") && no == 3) || 
+                    (_keyboardService.IsKeyDown("four") && no == 4))
             {
-                _directionD = new Point(-Constants.CELL_SIZE, 0);
+                _direction = new Point(-Constants.CELL_SIZE, 0);
             }
-            if (_keyboardService.IsKeyDown("j"))
-            {
-                _directionS = new Point(-Constants.CELL_SIZE, 0);
-            }
-            if (_keyboardService.IsKeyDown("four"))
-            {
-                _directionN = new Point(-Constants.CELL_SIZE, 0);
-            }
+           
             
+            // right
+            if ((_keyboardService.IsKeyDown("d") && no == 1) ||
+                 (_keyboardService.IsKeyDown("right") && no == 2) || 
+                 (_keyboardService.IsKeyDown("l") && no == 3) || 
+                 (_keyboardService.IsKeyDown("six") && no == 4))
+            {
+                _direction = new Point(Constants.CELL_SIZE, 0);
+            }
+
+            // up 
+            if ((_keyboardService.IsKeyDown("w") && no == 1) || 
+            (_keyboardService.IsKeyDown("up") && no == 2) || 
+            (_keyboardService.IsKeyDown("i") && no == 3) || 
+            (_keyboardService.IsKeyDown("eight") && no == 4))
+            {
+                _direction = new Point(0, -Constants.CELL_SIZE);
+            }
+
+            // down
+            if ((_keyboardService.IsKeyDown("s") && no == 1) || 
+            (_keyboardService.IsKeyDown("down") && no == 2) || 
+            (_keyboardService.IsKeyDown("k") && no == 3) || 
+            (_keyboardService.IsKeyDown("five") && no == 4))
+            {
+                _direction = new Point(0, Constants.CELL_SIZE);
+            }
 
             
-            // right || _keyboardService.IsKeyDown("right") || _keyboardService.IsKeyDown("l") || _keyboardService.IsKeyDown("six")
-            if (_keyboardService.IsKeyDown("d") )
-            {
-                _directionZ = new Point(Constants.CELL_SIZE, 0);
-            }
-            if (_keyboardService.IsKeyDown("right") )
-            {
-                _directionD = new Point(Constants.CELL_SIZE, 0);
-            }
-            if (_keyboardService.IsKeyDown("l") )
-            {
-                _directionS = new Point(Constants.CELL_SIZE, 0);
-            }
-            if (_keyboardService.IsKeyDown("six") )
-            {
-                _directionN = new Point(Constants.CELL_SIZE, 0);
+                // Bicycle bicycle = (Bicycle)cast.GetFirstActor("bicycle");
+                bike.TurnBike(_direction);
             }
 
-            // up  || _keyboardService.IsKeyDown("up") || _keyboardService.IsKeyDown("i") || _keyboardService.IsKeyDown("eight")
-            if (_keyboardService.IsKeyDown("w"))
-            {
-                _directionZ = new Point(0, -Constants.CELL_SIZE);
-            }
-            if (_keyboardService.IsKeyDown("up"))
-            {
-                _directionD = new Point(0, -Constants.CELL_SIZE);
-            }
-            if (_keyboardService.IsKeyDown("i"))
-            {
-                _directionS = new Point(0, -Constants.CELL_SIZE);
-            }
-            if (_keyboardService.IsKeyDown("eight"))
-            {
-                _directionN = new Point(0, -Constants.CELL_SIZE);
-            }
+            // Bicycle dragoneer = (Bicycle)cast.GetFirstActor("dragon");
+            // dragoneer.TurnBike(_directionD);
 
-            // down || _keyboardService.IsKeyDown("down") || _keyboardService.IsKeyDown("k") || _keyboardService.IsKeyDown("five")
-            if (_keyboardService.IsKeyDown("s") )
-            {
-                _directionZ = new Point(0, Constants.CELL_SIZE);
-            }
-            if (_keyboardService.IsKeyDown("down") )
-            {
-                _directionD = new Point(0, Constants.CELL_SIZE);
-            }
-            if (_keyboardService.IsKeyDown("k") )
-            {
-                _directionS = new Point(0, Constants.CELL_SIZE);
-            }
-            if (_keyboardService.IsKeyDown("five") )
-            {
-                _directionN = new Point(0, Constants.CELL_SIZE);
-            }
+            // Bicycle shadower = (Bicycle)cast.GetFirstActor("shadow");
+            // shadower.TurnBike(_directionS); 
 
-
-            Bicycle zoomer = (Bicycle)cast.GetFirstActor("zoom");
-            zoomer.TurnBike(_directionZ); 
-
-            Bicycle dragoneer = (Bicycle)cast.GetFirstActor("dragon");
-            dragoneer.TurnBike(_directionD);
-
-            Bicycle shadower = (Bicycle)cast.GetFirstActor("shadow");
-            shadower.TurnBike(_directionS); 
-
-            Bicycle ninjago = (Bicycle)cast.GetFirstActor("ninja");
-            ninjago.TurnBike(_directionN);
+            // Bicycle ninjago = (Bicycle)cast.GetFirstActor("ninja");
+            // ninjago.TurnBike(_directionN);
         }
     }
 }

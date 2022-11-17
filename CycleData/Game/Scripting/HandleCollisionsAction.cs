@@ -45,7 +45,7 @@ namespace CycleData.Game.Scripting
             Bicycle zoom = (Bicycle)cast.GetFirstActor("zoom");
             Bicycle slimshad = (Bicycle)cast.GetFirstActor("shadow");
             // Score score = (Score)cast.GetFirstActor("score");
-            // PowerUp power_up = (PowerUp)cast.GetFirstActor("power_up");
+            // PowerUp power_up = (PowerUp)cast.GetFirstActor("powa");
             
             // if (zoom.GetBike().GetPosition().Equals(power_up.GetPosition()))
             // {
@@ -57,25 +57,27 @@ namespace CycleData.Game.Scripting
         }
 
         /// <summary>
-        /// Sets the game over flag if the snake collides with one of its segments.
+        /// Sets the game over flag if a bike collides with another bike or trail segment.
         /// </summary>
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
         {
-            Bicycle zoom = (Bicycle)cast.GetFirstActor("zoom");
-            Bicycle drag = (Bicycle)cast.GetFirstActor("dragon");
-            Bicycle slimshad = (Bicycle)cast.GetFirstActor("shadow");
-            Bicycle shuriken = (Bicycle)cast.GetFirstActor("ninja");
-            Actor bike = zoom.GetBike();
-            Actor bike2 = slimshad.GetBike();
-            List<Actor> body = zoom.GetBody();
-            List<Actor> body2 = slimshad.GetBody();
-
-            foreach (Actor segment in body)
             {
-                if (segment.GetPosition().Equals(bike.GetPosition()))
+            Bicycle bicycle = (Bicycle)cast.GetFirstActor("bicycle");
+            // Bicycle drag = (Bicycle)cast.GetFirstActor("dragon");
+            // Bicycle slimshad = (Bicycle)cast.GetFirstActor("shadow");
+            // Bicycle shuriken = (Bicycle)cast.GetFirstActor("ninja");
+            Actor bike = bicycle.GetBike();
+            // Actor bike2 = slimshad.GetBike();
+            List<Actor> body = bicycle.GetBody();
+            // List<Actor> body2 = slimshad.GetBody();
+
+                foreach (Actor segment in body)
                 {
-                    _isGameOver = true;
+                    if (segment.GetPosition().Equals(bike.GetPosition()))
+                    {
+                        _isGameOver = true;
+                    }
                 }
             }
         }

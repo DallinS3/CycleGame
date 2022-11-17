@@ -20,10 +20,10 @@ namespace CycleData
             // create the cast
             Cast cast = new Cast();
             // cast.AddActor("food", new Food());
-            cast.AddActor("zoom", new Bicycle());
-            cast.AddActor("shadow", new Bicycle());
-            cast.AddActor("dragon", new Bicycle());
-            cast.AddActor("ninja", new Bicycle());
+            cast.AddActor("bicycle", new Bicycle(1));
+            cast.AddActor("bicycle", new Bicycle(2));
+            cast.AddActor("bicycle", new Bicycle(3));
+            cast.AddActor("bicycle", new Bicycle(4));
             // cast.AddActor("score", new Score());
             // cast.AddActor("powa", new PowerUp());
 

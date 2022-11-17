@@ -110,11 +110,11 @@ namespace CycleData.Game.Scripting
             Bicycle dragoneer = (Bicycle)cast.GetFirstActor("dragon");
             dragoneer.TurnBike(_directionD);
 
-            // Bicycle shadower = (Bicycle)cast.GetFirstActor("shadow");
-            // zoomer.TurnBike(_directionS); 
+            Bicycle shadower = (Bicycle)cast.GetFirstActor("shadow");
+            shadower.TurnBike(_directionS); 
 
-            // Bicycle ninjago = (Bicycle)cast.GetFirstActor("ninja");
-            // dragoneer.TurnBike(_directionN);
+            Bicycle ninjago = (Bicycle)cast.GetFirstActor("ninja");
+            ninjago.TurnBike(_directionN);
         }
     }
 }

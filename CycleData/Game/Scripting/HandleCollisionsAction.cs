@@ -43,8 +43,9 @@ namespace CycleData.Game.Scripting
         private void HandleFoodCollisions(Cast cast)
         {
             Bicycle zoom = (Bicycle)cast.GetFirstActor("zoom");
+            Bicycle slimshad = (Bicycle)cast.GetFirstActor("shadow");
             // Score score = (Score)cast.GetFirstActor("score");
-            PowerUp power_up = (PowerUp)cast.GetFirstActor("power_up");
+            // PowerUp power_up = (PowerUp)cast.GetFirstActor("power_up");
             
             // if (zoom.GetBike().GetPosition().Equals(power_up.GetPosition()))
             // {
@@ -66,7 +67,9 @@ namespace CycleData.Game.Scripting
             Bicycle slimshad = (Bicycle)cast.GetFirstActor("shadow");
             Bicycle shuriken = (Bicycle)cast.GetFirstActor("ninja");
             Actor bike = zoom.GetBike();
+            Actor bike2 = slimshad.GetBike();
             List<Actor> body = zoom.GetBody();
+            List<Actor> body2 = slimshad.GetBody();
 
             foreach (Actor segment in body)
             {
@@ -82,8 +85,10 @@ namespace CycleData.Game.Scripting
             if (_isGameOver == true)
             {
                 Bicycle bike = (Bicycle)cast.GetFirstActor("bike");
+                Bicycle bike2 = (Bicycle)cast.GetFirstActor("dragon");
                 List<Actor> segments = bike.GetSegments();
-                PowerUp food = (PowerUp)cast.GetFirstActor("food");
+                List<Actor> segments2 = bike2.GetSegments();
+                // PowerUp power_up = (PowerUp)cast.GetFirstActor("powerUp");
 
                 // create a "game over" message
                 int x = Constants.MAX_X / 2;
@@ -100,7 +105,7 @@ namespace CycleData.Game.Scripting
                 {
                     segment.SetColor(Constants.WHITE);
                 }
-                food.SetColor(Constants.WHITE);
+                // power_up.SetColor(Constants.WHITE);
             }
         }
 

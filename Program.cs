@@ -25,7 +25,7 @@ namespace CycleData
             cast.AddActor("dragon", new Bicycle());
             cast.AddActor("ninja", new Bicycle());
             // cast.AddActor("score", new Score());
-            cast.AddActor("powa", new PowerUp());
+            // cast.AddActor("powa", new PowerUp());
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();

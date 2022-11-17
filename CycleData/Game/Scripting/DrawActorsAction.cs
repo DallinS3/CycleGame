@@ -29,12 +29,18 @@ namespace CycleData.Game.Scripting
             Bicycle shadii = (Bicycle)cast.GetFirstActor("shadow");
             Bicycle ninjago = (Bicycle)cast.GetFirstActor("ninja");
             List<Actor> segments = zoomer.GetSegments();
+            List<Actor> segments2 = pendragon.GetSegments();
+            List<Actor> segments3 = shadii.GetSegments();
+            List<Actor> segments4 = ninjago.GetSegments();
             // Actor score = cast.GetFirstActor("score");
             // Actor power_up = cast.GetFirstActor("powerUp");
             List<Actor> messages = cast.GetActors("messages");
             
             _videoService.ClearBuffer();
             _videoService.DrawActors(segments);
+            _videoService.DrawActors(segments2);
+            _videoService.DrawActors(segments3);
+            _videoService.DrawActors(segments4);
             // _videoService.DrawActor(score);
             // _videoService.DrawActor(power_up);
             _videoService.DrawActors(messages);

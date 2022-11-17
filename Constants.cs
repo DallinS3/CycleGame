@@ -27,9 +27,13 @@ namespace CycleData.Game
         public static Color WHITE = new Color(255, 255, 255);
         public static Color YELLOW = new Color(255, 255, 0);
         public static Color GREEN = new Color(0, 255, 0);
-        public static Color BLUE = new Color(0, 0, 225);
+        public static Color DARKBLUE = new Color(0, 0, 225);
+        public static Color BLUE = new Color(100, 100, 225);
         public static Color OFFWHITE = new Color(205, 205, 205);
         public static Color BLACK = new Color(50, 50, 50);
+        public static Color GRAY = new Color(150, 150, 150);
+        public static Color GREY = new Color(175, 150, 200);
+        public static Color ORANGE = new Color(200, 150, 0);
 
     }
 

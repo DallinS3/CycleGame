@@ -24,28 +24,28 @@ namespace CycleData.Game.Casting
             if (id == 1){
                 no = 1;
                 color1 = Constants.RED;
-                color2 = Constants.BLUE;
-                x = 0;
-                y = 0;
+                color2 = Constants.WHITE;
+                x = (Constants.MAX_X - (Constants.CELL_SIZE * 5));
+                y = (Constants.MAX_Y - (Constants.CELL_SIZE * 5));
 
             }
             if (id == 2){
-                color1 = Constants.BLUE;
-                color2 = Constants.GREEN;
-                x = 50;
-                y = 100;
+                color1 = Constants.YELLOW;
+                color2 = Constants.ORANGE;
+                x = (Constants.MAX_X - (Constants.CELL_SIZE * 22));
+                y = (Constants.MAX_Y - (Constants.CELL_SIZE * 12));
             }
             if (id == 3){
-                color1 = Constants.YELLOW;
-                color2 = Constants.WHITE;
-                x = 50;
-                y = -100;
+                color1 = Constants.GRAY;
+                color2 = Constants.GREY;
+                x = (Constants.MAX_X - (Constants.CELL_SIZE * -14));
+                y = (Constants.MAX_Y - (Constants.CELL_SIZE * -10));;
             }
             if (id == 4){
-                color1 = Constants.YELLOW;
-                color2 = Constants.RED;
-                x = 100;
-                y = 0;
+                color1 = Constants.DARKBLUE;
+                color2 = Constants.BLUE;
+                x = (Constants.MAX_X - (Constants.CELL_SIZE * -3));
+                y = (Constants.MAX_Y - (Constants.CELL_SIZE *-3));
             }
         }
     }

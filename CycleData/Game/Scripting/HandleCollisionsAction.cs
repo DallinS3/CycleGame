@@ -62,35 +62,56 @@ namespace CycleData.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
         {
-            {
-            Bicycle bicycle = (Bicycle)cast.GetFirstActor("bicycle");
+            
             // Bicycle drag = (Bicycle)cast.GetFirstActor("dragon");
             // Bicycle slimshad = (Bicycle)cast.GetFirstActor("shadow");
             // Bicycle shuriken = (Bicycle)cast.GetFirstActor("ninja");
-            Actor bike = bicycle.GetBike();
+            
             // Actor bike2 = slimshad.GetBike();
-            List<Actor> body = bicycle.GetBody();
+            
             // List<Actor> body2 = slimshad.GetBody();
 
-                foreach (Actor segment in body)
+            foreach(Bicycle bicycle in cast.GetActors("bicycle")) //bike that will compare to another bike and its segments
+            {
+                Actor bike = bicycle.GetBike();
+
+                foreach(Bicycle path in cast.GetActors("bicycle")) // second bike from which the segments are from
                 {
-                    if (segment.GetPosition().Equals(bike.GetPosition()))
+                    foreach(Actor segment in path.GetSegments())
                     {
-                        _isGameOver = true;
+                        // Actor biicicle = bicycle.GetBike();
+                        if (bike.GetPosition().Equals(segment.GetPosition()) 
+                        && !(bicycle.GetBikeNo() == path.GetBikeNo()))
+                        {
+                            _isGameOver = true;
+                        }
                     }
                 }
+                // Bicycle bicycle = (Bicycle)cast.GetFirstActor("bicycle");
+                
+                // List<Actor> body = bicycle.GetBody();
+                // foreach (Actor segment in body)
+                // {
+                //     if (segment.GetPosition().Equals(bike.GetPosition()))
+                //     {
+                //         _isGameOver = false;
+                //     }
+                // }
             }
+            
+
         }
 
         private void HandleGameOver(Cast cast)
         {
             if (_isGameOver == true)
             {
-                Bicycle bike = (Bicycle)cast.GetFirstActor("bike");
-                Bicycle bike2 = (Bicycle)cast.GetFirstActor("dragon");
-                List<Actor> segments = bike.GetSegments();
-                List<Actor> segments2 = bike2.GetSegments();
+                Bicycle bicycle = (Bicycle)cast.GetFirstActor("bicycle");
+                // Bicycle bike2 = (Bicycle)cast.GetFirstActor("dragon");
+                List<Actor> segments = bicycle.GetSegments();
+                // List<Actor> segments2 = bike2.GetSegments();
                 // PowerUp power_up = (PowerUp)cast.GetFirstActor("powerUp");
+
 
                 // create a "game over" message
                 int x = Constants.MAX_X / 2;
@@ -105,7 +126,7 @@ namespace CycleData.Game.Scripting
                 // make everything white
                 foreach (Actor segment in segments)
                 {
-                    segment.SetColor(Constants.WHITE);
+                    segment.SetColor(Constants.BLACK);
                 }
                 // power_up.SetColor(Constants.WHITE);
             }

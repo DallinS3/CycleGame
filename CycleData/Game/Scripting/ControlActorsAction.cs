@@ -31,47 +31,54 @@ namespace CycleData.Game.Scripting
         {
             foreach (Bicycle bike in cast.GetActors("bicycle"))
             {
-                int no = bike.GetBikeNo();
+                
+                int num = bike.GetBikeNo();
+                _direction = bike.GetVelocity();
+
                 // left
-                if ((_keyboardService.IsKeyDown("a") && no == 1) || 
-                    (_keyboardService.IsKeyDown("left") && no == 2) || 
-                    (_keyboardService.IsKeyDown("j") && no == 3) || 
-                    (_keyboardService.IsKeyDown("four") && no == 4))
-            {
-                _direction = new Point(-Constants.CELL_SIZE, 0);
-            }
-           
-            
-            // right
-            if ((_keyboardService.IsKeyDown("d") && no == 1) ||
-                 (_keyboardService.IsKeyDown("right") && no == 2) || 
-                 (_keyboardService.IsKeyDown("l") && no == 3) || 
-                 (_keyboardService.IsKeyDown("six") && no == 4))
-            {
-                _direction = new Point(Constants.CELL_SIZE, 0);
-            }
+                if ((_keyboardService.IsKeyDown("a") && num == 1) || 
+                    (_keyboardService.IsKeyDown("left") && num == 2) || 
+                    (_keyboardService.IsKeyDown("j") && num == 3) || 
+                    (_keyboardService.IsKeyDown("four") && num == 4))
+                    {
+                        _direction = new Point(-Constants.CELL_SIZE, 0);
+                        bike.TurnBike(_direction);
+                    }
+                
+                    
+                    // right
+                    if ((_keyboardService.IsKeyDown("d") && num == 1) ||
+                        (_keyboardService.IsKeyDown("right") && num == 2) || 
+                        (_keyboardService.IsKeyDown("l") && num == 3) || 
+                        (_keyboardService.IsKeyDown("six") && num == 4))
+                    {
+                        _direction = new Point(Constants.CELL_SIZE, 0);
+                        bike.TurnBike(_direction);
+                    }
 
-            // up 
-            if ((_keyboardService.IsKeyDown("w") && no == 1) || 
-            (_keyboardService.IsKeyDown("up") && no == 2) || 
-            (_keyboardService.IsKeyDown("i") && no == 3) || 
-            (_keyboardService.IsKeyDown("eight") && no == 4))
-            {
-                _direction = new Point(0, -Constants.CELL_SIZE);
-            }
+                    // up 
+                    if ((_keyboardService.IsKeyDown("w") && num == 1) || 
+                    (_keyboardService.IsKeyDown("up") && num == 2) || 
+                    (_keyboardService.IsKeyDown("i") && num == 3) || 
+                    (_keyboardService.IsKeyDown("eight") && num == 4))
+                    {
+                        _direction = new Point(0, -Constants.CELL_SIZE);
+                        bike.TurnBike(_direction);
+                    }
 
-            // down
-            if ((_keyboardService.IsKeyDown("s") && no == 1) || 
-            (_keyboardService.IsKeyDown("down") && no == 2) || 
-            (_keyboardService.IsKeyDown("k") && no == 3) || 
-            (_keyboardService.IsKeyDown("five") && no == 4))
-            {
-                _direction = new Point(0, Constants.CELL_SIZE);
-            }
+                    // down
+                    if ((_keyboardService.IsKeyDown("s") && num == 1) || 
+                    (_keyboardService.IsKeyDown("down") && num == 2) || 
+                    (_keyboardService.IsKeyDown("k") && num == 3) || 
+                    (_keyboardService.IsKeyDown("five") && num == 4))
+                    {
+                        _direction = new Point(0, Constants.CELL_SIZE);
+                        bike.TurnBike(_direction);
+                    }
 
             
                 // Bicycle bicycle = (Bicycle)cast.GetFirstActor("bicycle");
-                bike.TurnBike(_direction);
+                //bike.GrowTrail();
             }
 
             // Bicycle dragoneer = (Bicycle)cast.GetFirstActor("dragon");

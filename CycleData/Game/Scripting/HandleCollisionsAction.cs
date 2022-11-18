@@ -133,7 +133,7 @@ namespace CycleData.Game.Scripting
                 // make everything black
                 foreach (Actor segment in segments)
                 {
-                    segment.SetColor(Constants.WHITE);
+                    segment.SetColor(Constants.BLACK);
                 }
                 // power_up.SetColor(Constants.WHITE);
             }

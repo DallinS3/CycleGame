@@ -12,6 +12,7 @@ namespace CycleData.Game.Casting
     {
         private List<Actor> _segments = new List<Actor>();
         private int _no;
+        public string _name;
         Color _color;
 
         /// <summary>
@@ -110,6 +111,7 @@ namespace CycleData.Game.Casting
         {
             return _color;
         }
+        
         /// <summary>
         /// Prepares the snake body for moving.
         /// </summary>
@@ -120,6 +122,7 @@ namespace CycleData.Game.Casting
 
             Traits traits = new Traits(id);
             _color = traits.color2;
+            _name = traits.name;
 
             for (int i = 0; i < Constants.BIKE_LENGTH; i++)
             {

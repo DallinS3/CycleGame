@@ -42,8 +42,9 @@ namespace CycleData.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         private void HandleFoodCollisions(Cast cast)
         {
-            Bicycle zoom = (Bicycle)cast.GetFirstActor("zoom");
-            Bicycle slimshad = (Bicycle)cast.GetFirstActor("shadow");
+            Bicycle bicycle = (Bicycle)cast.GetFirstActor("bicycle");
+            // Bicycle bicycle = (Bicycle)cast.GetFirstActor("bicycle");
+            // Bicycle bicycle = (Bicycle)cast.GetFirstActor("bicycle");
             // Score score = (Score)cast.GetFirstActor("score");
             // PowerUp power_up = (PowerUp)cast.GetFirstActor("powa");
             
@@ -79,11 +80,14 @@ namespace CycleData.Game.Scripting
                 {
                     foreach(Actor segment in path.GetSegments())
                     {
-                        // Actor biicicle = bicycle.GetBike();
                         if (bike.GetPosition().Equals(segment.GetPosition()) 
                         && !(bicycle.GetBikeNo() == path.GetBikeNo()))
                         {
-                            _isGameOver = true;
+                            // _isGameOver = true;
+                            cast.RemoveActor("bicycle", bicycle);
+                            if (cast.GetActors("bicycle").Count() < 2){
+                                _isGameOver = true;
+                            }
                         }
                     }
                 }
@@ -117,16 +121,19 @@ namespace CycleData.Game.Scripting
                 int x = Constants.MAX_X / 2;
                 int y = Constants.MAX_Y / 2;
                 Point position = new Point(x, y);
-
+                string name = "no one";
+                foreach (Bicycle bike in cast.GetActors("bicycle")){
+                    name = bike._name;
+                }
                 Actor message = new Actor();
-                message.SetText("Game Over!");
+                message.SetText($"{name} is the WINNER!");
                 message.SetPosition(position);
                 cast.AddActor("messages", message);
 
-                // make everything white
+                // make everything black
                 foreach (Actor segment in segments)
                 {
-                    segment.SetColor(Constants.BLACK);
+                    segment.SetColor(Constants.WHITE);
                 }
                 // power_up.SetColor(Constants.WHITE);
             }

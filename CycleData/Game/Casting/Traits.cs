@@ -19,6 +19,10 @@ namespace CycleData.Game.Casting
         public int x = 0;
         public int y = 0;
 
+        /// <summary>
+        /// Assigns specific traits to a bike based on its ID
+        /// </summary>
+        /// <param name="id"></param>
         public Traits(int id)
         {
             if (id == 1){
